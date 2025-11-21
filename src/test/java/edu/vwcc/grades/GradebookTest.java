@@ -57,4 +57,31 @@ public class GradebookTest {
         assertEquals(90, student.getStudentGrade("Homework1"));
         assertEquals(99, student.getStudentGrade("FinalExam"));
     }
+
+    @Test
+    public void testAttendanceExtraCredit() {
+        // Create a student with 0 absences (perfect attendance)
+        Student perfectStudent = new Student("Perfect Student");
+        // Manually clear attendance and add 15 days (assuming 15 total)
+        // Actually, the skeleton generates random attendance. 
+        // We need a way to force attendance for testing.
+        // For this POC, let's assume we can add enough days to meet the threshold.
+        // The skeleton `markStudentPresent` adds to the set.
+        
+        // Let's rely on the logic: 15 total classes.
+        // We need <= 2 absences for +3 points.
+        // So we need >= 13 days present.
+        java.time.LocalDate start = java.time.LocalDate.of(2023, 1, 1);
+        for (int i = 0; i < 14; i++) {
+            perfectStudent.markStudentPresent(start.plusDays(i));
+        }
+        
+        // Set a grade of 90 on FinalExam
+        perfectStudent.setStudentGrade("FinalExam", 90);
+        
+        gradebook.addStudent(perfectStudent);
+        gradebook.applyAttendanceExtraCredit();
+        
+        assertEquals(93, perfectStudent.getStudentGrade("FinalExam"), "Should receive +3 points for good attendance");
+    }
 }

@@ -1,0 +1,44 @@
+{
+    "tests": [
+        {
+            "name": "Calculate Final Grade",
+            "setup": "",
+            "run": "mvn test -Dtest=GradebookTest#testCalculateFinalGrade",
+            "input": "",
+            "output": "",
+            "comparison": "included",
+            "timeout": 10,
+            "points": 30
+        },
+        {
+            "name": "Failing Students Logic",
+            "setup": "",
+            "run": "mvn test -Dtest=GradebookTest#testFailingStudents",
+            "input": "",
+            "output": "",
+            "comparison": "included",
+            "timeout": 10,
+            "points": 20
+        },
+        {
+            "name": "Set Grades Helper",
+            "setup": "",
+            "run": "mvn test -Dtest=GradebookTest#testSetGrades",
+            "input": "",
+            "output": "",
+            "comparison": "included",
+            "timeout": 10,
+            "points": 20
+        },
+        {
+            "name": "Attendance Extra Credit",
+            "setup": "",
+            "run": "mvn test -Dtest=GradebookTest#testAttendanceExtraCredit",
+            "input": "",
+            "output": "",
+            "comparison": "included",
+            "timeout": 10,
+            "points": 30
+        }
+    ]
+}
